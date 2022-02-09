@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
+
 import os
 
 import dj_database_url
@@ -28,12 +29,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', '4i&u(!%shd*0-3$ls)fohsjsd48t(gu%1-ch_
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-if os.environ.get('ENV') == 'PRODUCTION':
-    DEBUG = False
-else:
-    DEBUG = True
-
-
+DEBUG = os.environ.get('ENV') != 'PRODUCTION'
 ALLOWED_HOSTS = ['disquaire.herokuapp.com']
 
 
